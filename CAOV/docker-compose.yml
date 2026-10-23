@@ -1,0 +1,11 @@
+services:
+  caov:
+    build: .
+    container_name: caov
+    ports:
+      - "3636:3636"
+    restart: unless-stopped
+    security_opt:
+      - seccomp:unconfined
+    cap_add:
+      - SYS_PTRACE

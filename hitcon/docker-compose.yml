@@ -1,0 +1,14 @@
+services:
+  hitcon_ftp:
+    build: .
+    container_name: hitcon_ftp
+    working_dir: /chal
+    ports:
+      - "36:69/tcp"
+      - "36:69/udp"
+    cap_add:
+      - NET_BIND_SERVICE
+      - SYS_PTRACE
+    security_opt:
+      - seccomp:unconfined
+    # restart: unless-stopped

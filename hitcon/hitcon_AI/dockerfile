@@ -1,0 +1,15 @@
+FROM ubuntu:18.04
+
+RUN apt-get update && apt-get install -y \
+    libbsd0 \
+    libmd0 \
+    strace \
+    netcat \
+    python3 \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /chal
+COPY hitcon_ftp /chal/hitcon_ftp
+RUN chmod +x /chal/hitcon_ftp
+
+CMD ["/chal/hitcon_ftp"]
